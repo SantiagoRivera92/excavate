@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excavate</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/topbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/syntax.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+    <link rel="manifest" href="{{ url_for('static', filename='favicon/site.webmanifest')}}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon/favicon.ico')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    {% include 'widgets/top-bar.html.jinja' %}
+    <div class="main-container">
+        {% include 'widgets/syntax-table.html.jinja' %}
+        <div class="syntax-tips">
+            <div class="syntax-help">If you wanted to search for Xyz Pendulum Monsters with a scale lower than 4 and more than (or exactly) 2000 ATK, you could make this search:
+                
+                <a href="/search?q=t%3Axyz+t%3Apendulum+s<4+atk>%3D2000">t:xyz t:pendulum s<4 atk>=2000</a>
+            </div>
+            <div class="syntax-help">If Crystron Halqifibrax ever gets unbanned, you will want to have this nearby:
+
+                <a href="/search?q=t:tuner lv<=3 -o:&quot;cannot be special summoned&quot; -t:fusion -t:synchro -t:ritual">t:tuner lv&lt;=3 -o:"cannot be special summoned" -t:fusion -t:synchro -t:ritual</a>
+            </div>
+            <div class="syntax-help">To search for Monsters with ? ATK or DEF, just search for atk&lt;0 or def&lt;0:
+                
+                <a href="/search?q=atk<0">atk&lt;0</a>
+            </div>
+            <div class="syntax-help">To negate a search term, use "-" in front of it. You can search for non-DARK tuner monsters like this:
+
+                <a href="/search?q=c:monster -a:dark t:tuner">c:monster -a:dark t:tuner</a>
+            </div>
+            <div class="syntax-help">To find the cards that are banned in the TCG but not in the OCG, you can do this:
+
+                <a href="/search?q=forbidden:advanced -forbidden:ocg">forbidden:advanced -forbidden:ocg</a>
+            </div>
+            <div class="syntax-help">The "date" parameter allows you to use both a specific date and a year. This includes any reprint of a card, so if you do this:
+
+                <a href="/search?q=date=2023">date=2023</a>
+
+                You will still find "Infinite Impermanence", since it was reprinted in "25th Anniversary Rarity Collection" and "Structure Deck: Fire Kings".
+            </div>
+        <div>
+    </div>
+</body>
+</html>

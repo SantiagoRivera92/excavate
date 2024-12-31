@@ -1,0 +1,76 @@
+{% set icons = {
+    "Spell": "icon/spell.webp",
+    "Trap": "icon/trap.webp",
+    "DARK": "icon/dark.webp",
+    "LIGHT": "icon/light.webp",
+    "WATER": "icon/water.webp",
+    "WIND": "icon/wind.webp",
+    "FIRE": "icon/fire.webp",
+    "EARTH": "icon/earth.webp",
+    "DIVINE": "icon/divine.webp",
+    "Quick-Play": "icon/quick.webp",
+    "Counter": "icon/counter.webp",
+    "Continuous": "icon/continuous.webp",
+    "Field": "icon/field.webp",
+    "Equip": "icon/equip.webp",
+    "Normal":"icon/normal.webp",
+    "Ritual":"icon/ritual.webp",
+} %}
+<div class="card-header">
+    <h4>{{ card.name }}</h4>
+    <div class="attribute-icons">
+        {% include 'widgets/card-attribute.html.jinja' %}
+    </div>
+</div>
+{% if card.card_type == "Monster" %}
+    {% if "Xyz" in card.typeline %}
+        {% include 'widgets/monster-rank.html.jinja' %}
+    {% elif "Link" not in card.typeline%}
+        {% include 'widgets/monster-level.html.jinja' %}
+    {% endif %}
+{% else %}
+    <div class="icon-container right">
+        {% if "Spell" in card.card_type %}
+            {% if "Normal" in card.typeline %}
+                <h4>[Spell Card]</h4>
+            {% else %}
+                <h4>[Spell Card</h4> 
+                <img class="card-type" src="{{ url_for('static', filename=icons[card.typeline]) }}" alt="{{card.typeline}}">
+                <h4>]</h4>
+            {% endif %}
+        {% elif "Trap" in card.card_type%}
+        {% if "Normal" in card.typeline %}
+            <h4>[Trap Card]</h4>
+        {% else %}
+            <h4>[Trap Card</h4> 
+            <img class="card-type" src="{{ url_for('static', filename=icons[card.typeline]) }}" alt="{{card.typeline}}">
+            <h4>]</h4>
+        {% endif %}
+        {% endif %}
+    </div>
+{% endif %}
+<div style="height:20px;"></div>
+{% if card.card_type == "Monster" %}
+<h4>[{{ card.typeline }}]</h4>
+{% if "Pendulum" in card.typeline %}
+<div class="icon-container" style="margin-left:0px; gap:8px;">
+    <img style="height:18px;" src="{{url_for('static', filename='icon/leftscale.png')}}">
+    <p><strong>{{card.scale}}</strong></p>
+    <img style="height:18px;" src="{{url_for('static', filename='icon/rightscale.png')}}">
+</div>
+{% endif %}
+{% endif%}
+{% if "Pendulum" in card.typeline and card.pendulum_effect is not none%}
+    <p><strong>Pendulum Effect:</strong></p>
+    <p>{{card.pendulum_effect | format_card_name(card.name) | safe}}</p>
+    <p><strong>Monster Effect:</strong></p>
+{% endif %}
+<p style="margin-bottom:20px;">{{ card.text | format_card_name(card.name) | safe }}</p>
+{% if card.card_type == "Monster" %}
+    {% if "Link" not in card.typeline %}
+        <p style="text-align:right;"><strong>ATK/ {%if card.atk!=-1 %}{{card.atk}}{%else%}?{%endif%} DEF/ {%if card.def!=-1 %}{{card.def}}{%else%}?{%endif%}</strong></p>
+    {% else %}
+        <p style="text-align:right;"><strong>ATK/ {%if card.atk!=-1 %}{{card.atk}}{%else%}?{%endif%} LINK-{{card.level}}</strong></p>
+        {% include 'widgets/card-link-rating.html.jinja' %}
+    {% endif %}
+{% endif %}

@@ -1,0 +1,7 @@
+{% for card in results %}
+    <a href="/card?id={{ card.konami_id }}" class="grid-item-link">
+        <div class="grid-item">
+            {% include 'widgets/grid-image.html.jinja' %}
+        </div>
+    </a>
+{% endfor %}

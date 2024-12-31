@@ -1,0 +1,100 @@
+{% set status_classes = {
+    "Forbidden": "forbidden",
+    "Limited": "limited",
+    "Semi-Limited": "semi-limited",
+    "Unlimited": "unlimited",
+    "Unreleased": "not-yet-printed",
+    "Limited 1": "limited",
+    "Limited 2": "semi-limited",
+    "Limited 3": "l3"
+} %}
+
+<div class="legality-grid">
+    <div class="grid-item" style="grid-column: span 3; text-align: center; font-weight: bold;">Official formats</div>
+
+    <a onclick="displayAdvanced();" class="grid-item clickable">
+        <span class="status-cell {{ status_classes[card.status['Advanced']] }}">{{ card.status['Advanced'] }}</span>
+        <span class="format-cell">Advanced</span>
+    </a>
+
+    <a onclick="displayAdvanced();" class="grid-item clickable">
+        <span class="status-cell {{ status_classes[card.status['OCG']] }}">{{ card.status['OCG'] }}</span>
+        <span class="format-cell">OCG</span>
+    </a>
+
+    <a class="grid-item {% if card.md_prints %}clickable{% endif %}" {% if card.md_prints %}onclick="displayMasterDuel()" {% endif %}>
+        <span class="status-cell {{status_classes[card.status['MD']] }}">{{card.status['MD']}}</span>
+        <span class="format-cell">Master Duel</span>
+    </a>
+
+    <a class="grid-item {% if card.dl_prints %}clickable{% endif %}" {% if card.dl_prints %}onclick="displayDuelLinks()" {% endif %}>
+        <span class="status-cell {{status_classes[card.status['DL']] }}">{{card.status['DL']}}</span>
+        <span class="format-cell">Duel Links</span>
+    </a>
+
+    <a onclick="displayAdvanced();" class="grid-item clickable">
+        <span class="status-cell {{ status_classes['Limited' if card.status['Advanced'] == 'Forbidden' else card.status['Advanced']] }}">{{ 'Limited' if card.status['Advanced'] == 'Forbidden' else card.status['Advanced'] }}</span>
+        <span class="format-cell">Traditional</span>
+    </a>
+
+    {% set status = card.status['Common Charity'] %}
+    <a class="grid-item {% if status != 'Unreleased' %}clickable{% endif %}" 
+        {% if status != 'Unreleased' %}
+            onclick="displayCommonCharity();"
+        {% endif %}>
+        <span class="status-cell {{ status_classes[card.status['Common Charity']] }}">{{ status }}</span>
+        <span class="format-cell">Common Charity</span>
+    </a>
+
+    <div class="grid-item" style="grid-column: span 3; text-align: center; font-weight: bold; margin-top:8px;">Time Wizard (Popular)</div>
+
+    {% for format in formats %}
+        {% if format.popular and format.popular == true %}
+            {% set status = card.status.tw[format.name] %}
+            <a class="grid-item {% if status != 'Unreleased' %}clickable{% endif %}" 
+            {% if status != 'Unreleased' %}
+                onclick="filterTimeWizard('{{ format.date }}');"
+            {% endif %}>
+                <span class="status-cell {{ status_classes[status] }}">{{ status }}</span>
+                <span class="format-cell">{{ format.name }}</span>
+            </a>
+        {% endif %}
+    {% endfor %}
+
+    <div class="grid-item" style="grid-column: span 3; text-align: center; font-weight: bold; margin-top:8px;">Time Wizard (Highlight)</div>
+
+    {% for format in formats %}
+        {% if format.highlight and format.highlight == true %}
+            {% set status = card.status.tw[format.name] %}
+            <a class="grid-item {% if status != 'Unreleased' %}clickable{% endif %}" 
+            {% if status != 'Unreleased' %}
+                onclick="filterTimeWizard('{{ format.date }}');"
+            {% endif %}>
+                <span class="status-cell {{ status_classes[status] }}">{{ status }}</span>
+                <span class="format-cell">{{ format.name }}</span>
+            </a>
+        {% endif %}
+    {% endfor %}
+
+
+    <div class="download-link" style="grid-column: span 3; text-align: center; font-weight: bold; margin-top:8px; cursor: pointer; margin-left:40px; margin-right:40px;margin-top:16px;" id="toggle-eras">Show other Time Wizard formats</div>
+
+</div>
+<div class="tw-grid" id="eras-section">
+    {% set eras = ["DM", "GX", "5Ds", "Zexal", "Arc-V", "Vrains", "Sevens", "Go Rush"] %}
+    {% for era in eras %}
+        <div class="grid-item" style="grid-column: span 3; text-align: center; font-weight: bold; margin-top:8px;">Time Wizard ({{ era }})</div>
+        {% for format in formats %}
+            {% if not format.highlight and not format.popular and format.era == era %}
+                {% set status = card.status.tw[format.name] %}
+                <a class="grid-item {% if status != 'Unreleased' %}clickable{% endif %}" 
+                {% if status != 'Unreleased' %}
+                    onclick="filterTimeWizard('{{ format.date }}');"
+                {% endif %}>
+                    <span class="status-cell {{ status_classes[status] }}">{{ status }}</span>
+                    <span class="format-cell">{{ format.name }}</span>
+                </a>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+</div>

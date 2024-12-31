@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excavate</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/topbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/card.css') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='favicon/site.webmanifest')}}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon/favicon.ico')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    {% include 'widgets/top-bar.html.jinja' %}
+
+    <div class="main-container">
+        <div class="card-container">
+            <div class="card-image">
+                {% include 'widgets/card-image.html.jinja' %}
+                {% include 'widgets/card-artworks.html.jinja' %}
+                {% include 'widgets/card-art-links.html.jinja' %}
+            </div>
+            <div>
+                <div class="card-text-container">
+                    {% include 'widgets/card-info.html.jinja' %}
+                </div>
+                <div class="legality-text-container">
+                    {% include 'widgets/card-legality.html.jinja' %}
+                </div>
+            </div>
+            <div class="printings-widget">
+                {% include 'widgets/card-printings.html.jinja' %}
+            </div>
+        </div>
+    </div>
+    <script>
+        const card = {{card}}
+    </script>
+    <script src="{{ url_for('static', filename='js/table.js') }}?v={{ config['STATIC_VERSION'] }}"></script>
+    <script src="{{ url_for('static', filename='js/card.js') }}?v={{ config['STATIC_VERSION'] }}"></script>
+</body>
+</html>

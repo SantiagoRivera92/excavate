@@ -1,0 +1,5 @@
+<div class="image-container">    
+    <img src="{{ card.thumb_url }}" class="card_image" id="card_image" alt="{{ card.name }}" 
+        onload="this.style.opacity=1; this.previousElementSibling.style.display='none';" 
+        onerror="this.onerror=null; this.src='{{ card.image_url }}'; this.style.opacity=1; this.previousElementSibling.style.display='none';">
+</div>

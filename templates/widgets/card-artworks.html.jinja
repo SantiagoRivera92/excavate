@@ -1,0 +1,9 @@
+{% if 'artwork_urls' in card and card.artwork_urls %}
+    <div class="artwork-thumbnails">
+        <div onclick="displayAdvanced()" class="all-artworks">All artworks</div>
+        {% for artwork_url in card.artwork_urls %}
+            <img src="https://yugipedia.com/thumb.php?f={{ artwork_url.url }}&w=75" alt="Artwork Thumbnail"
+                onclick="filterByPrintId({{ artwork_url.art_id }})" class="artwork">
+        {% endfor %}
+    </div>
+{% endif %}

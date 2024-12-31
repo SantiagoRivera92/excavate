@@ -1,0 +1,27 @@
+<div class="pagination">
+    <button 
+        onclick="window.location.href='/search?q={{ query|e }}&p=1'" 
+        class="pagination-button small {{ 'disabled' if total_pages <= 1 or page == 1 else '' }}"
+        {% if total_pages <= 1 or page == 1 %}disabled{% endif %}>
+        First
+    </button>
+    <button 
+        onclick="window.location.href='/search?q={{ query |e}}&p={{ page - 1 }}'" 
+        class="pagination-button {{ 'disabled' if total_pages <= 1 or page == 1 else '' }}"
+        {% if total_pages <= 1 or page == 1 %}disabled{% endif %}>
+        Previous 60
+    </button>
+    <button 
+        onclick="window.location.href='/search?q={{ query|e }}&p={{ page + 1 }}'" 
+        class="pagination-button {{ 'disabled' if total_pages <= 1 or page == total_pages else '' }}"
+        {% if total_pages <= 1 or page == total_pages %}disabled{% endif %}>
+        Next 60
+    </button>
+    <button 
+        onclick="window.location.href='/search?q={{ query|e }}&p={{ total_pages }}'" 
+        class="pagination-button small {{ 'disabled' if total_pages <= 1 or page == total_pages else '' }}"
+        {% if total_pages <= 1 or page == total_pages %}disabled{% endif %}>
+        Last
+    </button>
+</div>
+<div class="results-divider"></div>

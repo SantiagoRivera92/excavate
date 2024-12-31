@@ -1,0 +1,201 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+}
+.top-bar {
+    background-color: #9900cc; 
+    display: flex; 
+    justify-content: center;
+    padding: 10px;
+    height: 64px;
+}
+
+.top-bar-control {
+    display: flex;
+    align-items: center; 
+    color: white;
+    width: 1000px; 
+}
+
+.top-bar-input {
+    display: flex;
+    align-items: center; 
+    color: white;
+    width: 1000px; 
+}
+
+.top-bar-links{
+    display: flex;
+    align-items: center; 
+    gap: 15px; 
+    color: white;
+    margin-left:15px;
+}
+
+.top-bar-link {
+    margin: 0;
+    cursor: pointer; 
+    font-size: 1em; 
+    min-width:60px;
+    text-align: center;
+}
+
+.top-bar-control h1 {
+    margin: 0; 
+    font-size: 1.5em; 
+    flex-shrink: 0; 
+}
+
+.search-form {
+    display: flex; 
+    align-items: center;
+    flex-grow: 1;
+    margin-left:8px;
+}
+
+.search-input {
+    width: 100%; 
+    padding: 8px; 
+    font-size: 1em; 
+    border-radius: 5px;
+    border: none; 
+    outline: none; 
+    background-color: #8000cc; 
+    color: white; 
+}
+
+.search-input::placeholder {
+    color: white; 
+    opacity: 0.8;
+}
+
+.link-divider {
+    height: 20px; 
+    width: 1px; 
+    border-right: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.top-bar h5 {
+    margin: 0;
+    cursor: pointer; 
+    font-size: 1em; 
+    min-width: 60px;
+}
+
+.main-icon {
+    width: 32px; 
+    height: 32px; 
+}
+
+.golf-bar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 16px;
+    border-top: 10px solid #9900cc;
+    border-bottom: 1px solid #9900cc;
+    border-left: 1px solid #9900cc;
+    border-right: 1px solid #9900cc; 
+    border-radius: 5px;
+    padding: 20px;
+    gap: 8px;
+    white-space: pre-line;
+    line-height: 1.2;
+}
+
+.challenge-cards{
+    display:flex;
+    flex-direction: row;
+}
+
+.golf-bar img{
+    width:300px;
+    margin:4px;
+}
+
+.golf-results-bar {
+    position: relative;
+    display:flex;
+    flex-direction: row;
+}
+
+.title {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+}
+
+.question-mark {
+    font-size: 12px;
+    color: #007bff;
+    cursor: pointer;
+    margin-left: 5px;
+    display:inline-block;
+    border: 2px solid #007bff;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 18px;
+}
+
+.tooltip {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    width: max-content;
+    max-width: 321px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    z-index: 5;
+}
+
+.tooltip.show {
+    display: block;
+}
+
+
+@media (max-width: 616px){
+    .golf-bar img{
+        width:150px;
+        margin:4px;
+    }
+}
+
+@media (max-width: 1000px) {
+
+    .top-bar-control {
+        flex-direction: column;
+    }
+    .top-bar-input {
+        width: 98%;
+    }
+    .top-bar {
+        height: 92px;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .top-bar-links{
+        min-height: 36px;
+        width:100%;
+        justify-content: space-between;
+        margin:0 auto;
+        margin-top: 10px;
+        background-color: #8000cc;
+        padding: 0;
+        gap:0px;
+    }
+
+    .search-input{
+        width:98%;
+    }
+}

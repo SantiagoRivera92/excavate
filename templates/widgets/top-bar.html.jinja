@@ -1,0 +1,35 @@
+<div class="top-bar">
+    <div class="top-bar-control">
+        <div class="top-bar-input">
+            <a href="/">
+                <img class="main-icon" src="{{url_for('static', filename='favicon/android-chrome-512x512.png')}}">
+            </a>
+            <form action="/search" method="get" class="search-form">
+                <input 
+                    type="text" 
+                    name="q" 
+                    class="search-input"
+                    placeholder="Search for Yu-Gi-Oh! cards..."
+                    value="{{ query | e}}" 
+                    aria-label="Search">
+            </form>
+            <div class="search-button">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 24 24" width="24px" height="24px">
+                    <g id="Rounded">
+                        <path fill="#ffffff" d="M21.586,19.586L16,14h-2v2l5.586,5.586c0.552,0.552,1.448,0.552,2,0h0C22.138,21.034,22.138,20.138,21.586,19.586z"/>
+                        <circle stroke="#ffffff" style="fill:none;stroke-width:2;stroke-miterlimit:10;" cx="9" cy="9" r="6"/>
+                        <line stroke="#ffffff" style="fill:none;stroke-miterlimit:10;" x1="13" y1="13" x2="15.5" y2="15.5"/>
+                    </g>
+                </svg>
+            </div>
+        </div>
+        {%include 'widgets/top-bar-links.html.jinja' %}
+    </div>
+</div>
+
+<script>
+    document.querySelector('.search-button').addEventListener('click', function(e) {
+        e.preventDefault();  
+        document.querySelector('.search-form').submit();
+    });
+</script>

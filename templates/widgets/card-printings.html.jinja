@@ -1,0 +1,11 @@
+<div class="table-container">
+    <table class="printings-table">
+        <tbody id="printings-table-body"></tbody>
+    </table>
+</div>
+
+{% for print in prints %}
+    {% if print.file and print.file|length > 0 %}
+        <link rel="prefetch" as="image" href="https://yugipedia.com/thumb.php?f={{ print.file }}&w=300">
+    {% endif %}
+{% endfor %}

@@ -1,0 +1,23 @@
+{% set icons = {
+    "Spell": "icon/spell.webp",
+    "Trap": "icon/trap.webp",
+    "DARK": "icon/dark.webp",
+    "LIGHT": "icon/light.webp",
+    "WATER": "icon/water.webp",
+    "WIND": "icon/wind.webp",
+    "FIRE": "icon/fire.webp",
+    "EARTH": "icon/earth.webp",
+    "DIVINE": "icon/divine.webp",
+    "Quick-Play": "icon/quick.webp",
+    "Counter": "icon/counter.webp",
+    "Continuous": "icon/continuous.webp",
+    "Field": "icon/field.webp",
+    "Equip": "icon/equip.webp",
+    "Normal":"icon/normal.webp",
+    "Ritual":"icon/ritual.webp",
+} %}
+{% if card.card_type in icons %}
+    <img class="card-attribute" src="{{ url_for('static', filename=icons[card.card_type]) }}" alt="{{ card.card_type }}">
+{% elif card.attribute in icons %}
+    <img class="card-attribute" src="{{ url_for('static', filename=icons[card.attribute]) }}" alt="{{ card.attribute }}">
+{% endif %}

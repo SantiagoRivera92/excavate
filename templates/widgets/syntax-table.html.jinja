@@ -1,0 +1,140 @@
+<table>
+    <tbody>
+        <tr>
+            <td colspan="3" class="syntax-separator" style="text-align: center; font-weight: bold;">Card data queries</td>
+        </tr>
+        <tr>
+            <td>a</td>
+            <td>Attribute</td>
+            <td><a href="/search?q=a=dark">a=dark</a>, <a href="/search?q=a:divine">a:divine</a></td>
+        </tr>
+        <tr>
+            <td>c</td>
+            <td>Card type</td>
+            <td><a href="/search?q=c:monster">c:monster</a>, <a href="/search?q=c:spell">c:spell</a>, <a href="/search?q=c:trap">c:trap</a></td>
+        </tr>
+        <tr>
+            <td>l</td>
+            <td>Level / Rank / Link Rating</td>
+            <td><a href="/search?q=l=4">l=4</a></td>
+        </tr>
+        <tr>
+            <td>o</td>
+            <td>Card Text</td>
+            <td><a href="/search?q=o%3A&quot;Special+Summon+this+card&quot;">o:"Special Summon this card"</a></td>
+        </tr>
+        <tr>
+            <td>s</td>
+            <td>Pendulum Scale</td>
+            <td><a href="/search?q=s=7">s=7</a></td>
+        </tr>
+        <tr>
+            <td>t</td>
+            <td>Type line</td>
+            <td><a href="/search?q=t:reptile">t:reptile</a>, <a href="/search?q=t:quick-play">t:quick-play</a>, <a href="/search?q=t:tuner">t:tuner</a>, <a href="/search?q=t=synchro">t:synchro</a></td>
+        </tr>
+        <tr>
+            <td>atk</td>
+            <td>Attack points</td>
+            <td><a href="/search?q=atk>=2500">atk&gt;=2500</a>, <a href="/search?q=atk<0">atk&lt;0</a></td>
+        </tr>
+        <tr>
+            <td>def</td>
+            <td>Defense points</td>
+            <td><a href="/search?q=def<2100">def&lt;2100</a>, <a href="/search?q=def<0">def&lt;0</a></td>
+        </tr>
+
+        <tr>
+            <td colspan="3" class="syntax-separator" style="text-align: center; font-weight: bold;">Metadata-related queries</td>
+        </tr>
+
+        <tr>
+            <td>archetype</td>
+            <td>Archetype</td>
+            <td><a href="/search?q=archetype=&quot;HERO&quot;">archetype="HERO"</a></td>
+        </tr>
+        <tr>
+            <td>set</td>
+            <td>Set code</td>
+            <td><a href="/search?q=set:MRD">set:MRD</a></td>
+        </tr>
+        <tr>
+            <td>date<br/>d</td>
+            <td>Print date</td>
+            <td>Accepts dates in YYYY-MM-DD, YYYY and YY formats.<br/><a href="/search?q=date=2024">date=2024</a>, <a href="/search?q=date<=2010-04-25">date&lt;=2010-04-25</a>, <a href="/search?q=d<11">d&lt;11</a></td>
+        </tr>
+        <tr>
+            <td colspan="3" class="syntax-separator" style="text-align: center; font-weight: bold;">Banlist-related queries</td>
+        </tr>
+
+        <tr>
+            <td>f</td>
+            <td>Format</td>
+            <td><a href="/search?q=f:goat">f:goat</a>, <a href="/search?q=f:edison">f:edison</a>, <a href="/search?q=f:&quot;common charity&quot;">f:"common charity"</a></td>
+        </tr>
+        <tr>
+            <td>forbidden</td>
+            <td>Forbidden</td>
+            <td><a href="/search?q=forbidden=meadowlands">forbidden:meadowlands</a>, <a href="/search?q=forbidden=advanced">forbidden:advanced</a></td>
+        </tr>
+        <tr>
+            <td>limited</td>
+            <td>Limited</td>
+            <td><a href="/search?q=limited=&quot;Tengu Plant&quot;">limited:"Tengu Plant"</a>, <a href="/search?q=limited=abc">limited:abc</a></td>
+        </tr>
+        <tr>
+            <td>semi</td>
+            <td>Semi-Limited</td>
+            <td><a href="/search?q=semi=goat">semi:goat</a>, <a href="/search?q=semi=toss">semi:toss</a></td>
+        </tr>
+
+        <tr>
+            <td colspan="3" class="syntax-separator" style="text-align: center; font-weight: bold;">Using "is:"</td>
+        </tr>
+        <tr>
+            <td colspan="3">"is:" functions as a way to shorten some common searches. <br/><br/>
+                This is the full list of properties you're allowed to use, but more will be added in the future.
+            </td> 
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center;"><a href="/search?q=is:main">is:main</a></td>
+            <td>Searches for cards that start the game in your Main Deck. <br/>It's equivalent to <a href="/search?q=-t:fusion -t:synchro -t:xyz -t:link">-t:fusion -t:synchro -t:xyz -t:link</a></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center;"><a href="/search?q=is:extra">is:extra</a></td>
+            <td>Searches for cards that start the game in your Extra Deck. <br/>It's equivalent to <a href="/search?q=t:fusion or t:synchro or t:xyz or t:link">t:fusion or t:synchro or t:xyz or t:link</a></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center;"><a href="/search?q=is:handtrap">is:handtrap</a></td>
+            <td>Searches for cards that activate from hand as a Quick Effect as a form of interaction.</td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center;"><a href="/search?q=is:dllim1">is:dllim1</a></td>
+            <td>Searches for cards that are Limited 1 in Yu-Gi-Oh Duel Links.</td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center;"><a href="/search?q=is:dllim2">is:dllim2</a></td>
+            <td>Searches for cards that are Limited 2 in Yu-Gi-Oh Duel Links.</td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center;"><a href="/search?q=is:dllim3">is:dllim3</a></td>
+            <td>Searches for cards that are Limited 3 in Yu-Gi-Oh Duel Links.</td>
+        </tr>
+        <tr>
+            <td colspan="3" class="syntax-separator" style="text-align: center; font-weight: bold;">Quotations</td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                You can use &quot; to force the searcher to consider anything a single term. <br/><br/>
+                For example, searching for <a href="/search?q=Crimson Ninja">Crimson Ninja</a> will search for cards with "Crimson" and "Ninja" in their name, such as "Crimson Ninja" and "Number 12: Crimson Shadow Armor Ninja". <br/><br/>
+                Searching for <a href='/search?q="Crimson Ninja"'>&quot;Crimson Ninja&quot;</a> instead will only return "Crimson Ninja".
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">If you want to search for something that contains &quot; in its name, such as Maxx &quot;C&quot; or Therion &quot;King&quot; Regulus, you wrap those searches in {}.<br/><br/>
+                For example, to search for the &quot;"C"&quot; archetype, you'll need to do it like this: <a href='/search?q=archetype={"C"}'>archetype={&quot;C&quot;}</a>
+            </td>
+        </tr>
+    </tbody>
+
+</table>

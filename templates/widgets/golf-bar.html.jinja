@@ -1,0 +1,19 @@
+<div class="top-bar">
+    <div class="top-bar-control">
+        <div class="top-bar-input">
+            <a href="/">
+                <img class="main-icon" src="{{url_for('static', filename='favicon/android-chrome-512x512.png')}}">
+            </a>
+            <form action="/golf" method="get" class="search-form">
+                <input 
+                    type="text" 
+                    name="q" 
+                    class="search-input"
+                    placeholder="Search for Yu-Gi-Oh! cards..."
+                    value="{{ query | e}}" 
+                    aria-label="Search">
+            </form>
+        </div>
+        {%include 'widgets/top-bar-links.html.jinja' %}
+    </div>
+</div>

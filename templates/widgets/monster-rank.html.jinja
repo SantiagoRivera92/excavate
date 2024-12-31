@@ -1,0 +1,5 @@
+<div class="icon-container">
+    {% for i in range(card.level) %}
+        <img src="{{ url_for('static', filename='icon/rank.webp') }}" alt="Rank Icon" style="width: 20px; height: auto; display: inline-block;">
+    {% endfor %}
+</div>

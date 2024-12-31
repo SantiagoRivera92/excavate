@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+}
+
+.search-button svg g path{
+    fill:#ffffff
+}
+.search-button svg g circle,
+.search-button svg g line {
+    stroke: #ffffff;
+}
+
+.search-button:hover svg g path{
+    fill:#dddddd
+}
+.search-button:hover svg g circle,
+.search-button:hover svg g line:hover {
+    stroke: #dddddd;
+}
+
+.top-bar {
+    background-color: #0099cc; 
+    display: flex; 
+    justify-content: center;
+    padding: 10px;
+    height: 64px;
+}
+
+.top-bar-control {
+    display: flex;
+    align-items: center; 
+    color: white;
+    width: 1000px; 
+}
+
+.top-bar-input {
+    display: flex;
+    align-items: center; 
+    color: white;
+    width: 1000px; 
+}
+
+.top-bar-links{
+    display: flex;
+    align-items: center; 
+    gap: 15px; 
+    color: white;
+    margin-left:15px;
+}
+
+.top-bar-link {
+    margin: 0;
+    cursor: pointer; 
+    font-size: 1em; 
+    min-width: 60px;
+    text-align: center;
+}
+
+.top-bar-control h1 {
+    margin: 0; 
+    font-size: 1.5em; 
+    flex-shrink: 0; 
+}
+
+.search-form {
+    display: flex; 
+    align-items: center;
+    flex-grow: 1;
+    margin-left:8px;
+}
+
+.search-input {
+    width: 100%; 
+    padding: 8px; 
+    font-size: 1em; 
+    border: none; 
+    outline: none; 
+    background-color: #0080cc; 
+    color: white;
+    height: 36px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.search-button{
+    background-color: #0080cc;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    height:36px;
+    width:36px;
+    padding:6px;
+}
+
+.search-input::placeholder {
+    color: white; 
+    opacity: 0.8;
+}
+
+.link-divider {
+    height: 20px; 
+    width: 1px; 
+    border-right: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+
+.main-icon {
+    width: 32px; 
+    height: 32px; 
+}
+
+@media (max-width: 1000px) {
+
+    .top-bar-control {
+        flex-direction: column;
+    }
+    .top-bar {
+        height: 92px;
+        width: 100vw;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .top-bar-links{
+        min-height: 36px;
+        width: 100vw;
+        justify-content: space-between;
+        margin:0 auto;
+        margin-top: 10px;
+        background-color: #0080cc;
+        padding: 0;
+        gap:0px;
+        flex-wrap: wrap;
+    }
+
+    .top-bar-link {
+        flex: 1;
+        min-width: 60px;
+        text-align: center;
+    }
+
+    .top-bar-input {
+        width: 90%; 
+    }
+
+    .search-input{
+        width:100%;
+    }
+}

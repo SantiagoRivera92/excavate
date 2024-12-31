@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excavate</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/golfbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/resultsbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/grid.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='favicon/site.webmanifest')}}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon/favicon.ico')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    {% include 'widgets/golf-bar.html.jinja' %}
+
+    <div class="main-container">
+        <div class="golf-results-bar">
+            <div class="title">
+                {{ title }}
+            <span class="question-mark" onclick="showHint()" onmouseover="showHint()" onmouseout="hideHint()">?</span>
+            <div class="tooltip" id="tooltip">{{ hint }}
+        </div>
+    </div>
+        </div>
+        <div class="golf-bar">
+            <h3 style="text-align: center;">Today's challenge:</h3>
+            <div class="challenge-cards">
+                {% for card in cards %}
+                <a href="/card?id={{ card.konami_id }}" class="grid-item-link">
+                    <img src="{{ card.thumb_url }}" class="card_image" id="card_image" alt="{{ card.name }}" 
+                        onload="this.style.opacity=1; this.previousElementSibling.style.display='none';" 
+                        onerror="this.onerror=null; this.src='{{ card.image_url }}'; this.style.opacity=1; this.previousElementSibling.style.display='none';">
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+        {% if results|length > 0 %}
+        <h3 style="margin-bottom: 8px;">These cards match your query. Try to exclude them!</h3>
+        <div class="grid-container">
+            {% include 'widgets/grid.html.jinja' %}
+        </div>
+        {% endif %}
+    </div>
+    <script src="{{ url_for('static', filename='js/golf.js') }}?v={{ config['STATIC_VERSION'] }}"></script>
+</body>
+</html>

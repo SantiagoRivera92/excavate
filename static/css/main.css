@@ -1,0 +1,23 @@
+body {
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+}
+
+img{
+    filter: invert(0) !important;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    width: 100%; 
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-bottom: 48px; 
+}
+
+@media (max-width: 1078px) {
+    .main-container{
+        width:95%
+    }
+}

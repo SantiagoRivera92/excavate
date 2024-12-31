@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excavate</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/topbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/resultsbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/grid.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='favicon/site.webmanifest')}}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon/favicon.ico')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    {% include 'widgets/top-bar.html.jinja' %}
+
+    <div class="main-container">
+        <div class="results-bar">
+            <div class="title">{{ title }}</div>
+            {% if total_pages > 1 %} 
+                {% include 'widgets/pagination.html.jinja' %}
+            {% endif %}
+        </div>
+        <div class="grid-container">
+            {% include 'widgets/grid.html.jinja' %}
+        </div>
+        {% if total_pages > 1 %} 
+        <div class="results-bar">
+            {% include 'widgets/pagination.html.jinja' %}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

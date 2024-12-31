@@ -1,0 +1,9 @@
+<div class="image-container">
+    <!-- Spinner that shows while loading -->
+    <div class="spinner" id="spinner"></div>
+    
+    <!-- Image that loads and triggers onload/onerror events -->
+    <img src="{{ card.image_url }}" class="card_image" id="card_image" alt="{{ card.name }}" 
+        onload="this.style.opacity=1; this.previousElementSibling.style.display='none';" 
+        this.style.opacity=1; this.previousElementSibling.style.display='none';">
+</div>

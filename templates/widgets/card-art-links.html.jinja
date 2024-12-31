@@ -1,0 +1,27 @@
+{% set archetypes = [] %}
+{% for archetype in card.archetypes %}
+    {% if '"' in archetype %}
+        {% set _ = archetypes.append('archetype:{' + archetype + '}') %}
+    {% else%}
+        {% set _ = archetypes.append('archetype:"' + archetype + '"') %}
+    {% endif %}
+{% endfor %}
+
+<div class="card-image-downloads">
+    <a target="_blank" href="https://tcgplayer.pxf.io/7amzo3?u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fyugioh%2Fproduct%3FproductName%3D{{ card.name | replace(' ', '%2B') | e }}%26productLineName%3Dyugioh%26view%3Dgrid" class="download-link">Buy on TCGPlayer</a>
+</div>
+<div class="card-image-downloads">
+    <a target="_blank" href={{card.image_url}} id="download-image" download class="download-link">Download image</a>
+    <a target="_blank" href="https://images.ygoprodeck.com/images/cards_cropped/{{ card.card_id }}.jpg" download class="download-link">Download card art</a>
+</div>
+<div class="card-image-downloads">
+    <a target="_blank" href="https://yugipedia.com/wiki/{{card.name}}" class="download-link">Open in Yugipedia</a>
+    <a target="_blank" href="https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=2&cid={{card.konami_id}}" class="download-link">Open in the official DB</a>
+</div>
+<div class="card-image-downloads">
+    <a target="_blank"href="https://db.ygoresources.com/card#{{card.konami_id}}" class="download-link">View rulings</a>
+    {% if archetypes|length > 0 %}
+        {% set archetype_query = ' or '.join(archetypes) %}
+        <a target="_blank"href="{{ url_for('search', q=archetype_query) }}" class="download-link">Find related cards</a></a>
+    {% endif %}
+</div>

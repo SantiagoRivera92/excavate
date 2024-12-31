@@ -1,0 +1,66 @@
+body{
+    margin:0px;
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+}
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+    background-color: aqua;
+    margin: auto;
+}
+
+.card-search, .card-info {
+    width: 20%;
+    padding: 20px;
+}
+
+.decklist {
+    width: 60%;
+    padding: 20px;
+}
+
+
+.main-deck{
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    height:547px;
+    width:800px;
+    background: white;
+}
+
+.side-deck, .extra-deck{
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1;
+    width:800px;
+    height:87px;
+    background: white;
+}
+
+.card-search, .decklist {
+    flex: 1;
+}
+
+.card-results {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    height:690px;
+    width:320px;
+    margin-top: 10px;
+}
+
+.deck-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    stroke: white;
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+}
