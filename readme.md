@@ -2,6 +2,8 @@
 
 Welcome to the Excavate project! This project is hosted at [https://www.excavate.top](https://www.excavate.top).
 
+Note that this does not include the MongoDB database. You will have to figure that one out yourself. If you want to contribute to the project, shoot me an e-mail and we can figure it out.
+
 ## Overview
 
 Excavate is a web application designed to help users search for and explore Yu-Gi-Oh! cards. It provides various features including card search, random card display, syntax guide, and a golf game to match cards with the shortest query.
@@ -19,7 +21,7 @@ To run the project locally, follow these steps:
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/excavate.git
+    git clone https://github.com/SantiagoRivera/excavate.git
     ```
 2. Navigate to the project directory:
     ```bash
